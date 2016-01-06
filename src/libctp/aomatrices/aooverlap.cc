@@ -293,16 +293,16 @@ namespace votca { namespace ctp {
 
         // s-f 
         if ( _lmax_col > 2 ){
-             _ol(0,10) = _pmb[0]*_ol(0,7) + _fak2* _ol(0,1);
-             _ol(0,11) = _pmb[1]*_ol(0,8) + _fak2* _ol(0,2);
-             _ol(0,12) = _pmb[2]*_ol(0,9) + _fak2* _ol(0,3);
-             _ol(0,13) = _pmb[0]*_ol(0,4) + _fak * _ol(0,2);
-             _ol(0,14) = _pmb[1]*_ol(0,4) + _fak * _ol(0,1);
-             _ol(0,15) = _pmb[0]*_ol(0,5) + _fak * _ol(0,3);
-             _ol(0,16) = _pmb[2]*_ol(0,5) + _fak * _ol(0,1);
-             _ol(0,17) = _pmb[1]*_ol(0,6) + _fak * _ol(0,3);
-             _ol(0,18) = _pmb[2]*_ol(0,6) + _fak * _ol(0,2);
-             _ol(0,19) = _pmb[2]*_ol(0,4);
+             _ol(0,10) = _pmb[0]*_ol(0,7) + _fak2* _ol(0,1); //s-xxx
+             _ol(0,11) = _pmb[1]*_ol(0,8) + _fak2* _ol(0,2); //s-yyy
+             _ol(0,12) = _pmb[2]*_ol(0,9) + _fak2* _ol(0,3); //s-zzz
+             _ol(0,13) = _pmb[0]*_ol(0,4) + _fak * _ol(0,2); //s-xxy
+             _ol(0,14) = _pmb[1]*_ol(0,4) + _fak * _ol(0,1); //s-xyy
+             _ol(0,15) = _pmb[0]*_ol(0,5) + _fak * _ol(0,3); //s-xxz
+             _ol(0,16) = _pmb[2]*_ol(0,5) + _fak * _ol(0,1); //s-xzz
+             _ol(0,17) = _pmb[1]*_ol(0,6) + _fak * _ol(0,3); //s-yyz
+             _ol(0,18) = _pmb[2]*_ol(0,6) + _fak * _ol(0,2); //s-yzz
+             _ol(0,19) = _pmb[2]*_ol(0,4);                   //s -xyz
         }
 
         // f-s

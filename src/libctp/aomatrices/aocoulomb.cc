@@ -343,16 +343,16 @@ namespace votca { namespace ctp {
 
                 // s-f
                 if (_lmax_col > 2) {
-                    _cou[0][10][0] = _wmq[0] * _cou[0][7][1] + _fakc2 * (_cou[0][1][0] - _fakaca * _cou[0][1][1]);
-                    _cou[0][11][0] = _wmq[1] * _cou[0][8][1] + _fakc2 * (_cou[0][2][0] - _fakaca * _cou[0][2][1]);
-                    _cou[0][12][0] = _wmq[2] * _cou[0][9][1] + _fakc2 * (_cou[0][3][0] - _fakaca * _cou[0][3][1]);
-                    _cou[0][13][0] = _wmq[0] * _cou[0][4][1] + _fakc * (_cou[0][2][0] - _fakaca * _cou[0][2][1]);
-                    _cou[0][14][0] = _wmq[1] * _cou[0][4][1] + _fakc * (_cou[0][1][0] - _fakaca * _cou[0][1][1]);
-                    _cou[0][19][0] = _wmq[2] * _cou[0][4][1];
-                    _cou[0][15][0] = _wmq[0] * _cou[0][5][1] + _fakc * (_cou[0][3][0] - _fakaca * _cou[0][3][1]);
-                    _cou[0][16][0] = _wmq[2] * _cou[0][5][1] + _fakc * (_cou[0][1][0] - _fakaca * _cou[0][1][1]);
-                    _cou[0][17][0] = _wmq[1] * _cou[0][6][1] + _fakc * (_cou[0][3][0] - _fakaca * _cou[0][3][1]);
-                    _cou[0][18][0] = _wmq[2] * _cou[0][6][1] + _fakc * (_cou[0][2][0] - _fakaca * _cou[0][2][1]);
+                    _cou[0][10][0] = _wmq[0] * _cou[0][7][1] + _fakc2 * (_cou[0][1][0] - _fakaca * _cou[0][1][1]); //s-xxx
+                    _cou[0][11][0] = _wmq[1] * _cou[0][8][1] + _fakc2 * (_cou[0][2][0] - _fakaca * _cou[0][2][1]); //s-yyy
+                    _cou[0][12][0] = _wmq[2] * _cou[0][9][1] + _fakc2 * (_cou[0][3][0] - _fakaca * _cou[0][3][1]); //s-zzz
+                    _cou[0][13][0] = _wmq[0] * _cou[0][4][1] + _fakc * (_cou[0][2][0] - _fakaca * _cou[0][2][1]);  //s-xxy
+                    _cou[0][14][0] = _wmq[1] * _cou[0][4][1] + _fakc * (_cou[0][1][0] - _fakaca * _cou[0][1][1]);  //s-xyy
+                    _cou[0][19][0] = _wmq[2] * _cou[0][4][1];       `                                              //s -xyz                                               
+                    _cou[0][15][0] = _wmq[0] * _cou[0][5][1] + _fakc * (_cou[0][3][0] - _fakaca * _cou[0][3][1]);  //s-xxz
+                    _cou[0][16][0] = _wmq[2] * _cou[0][5][1] + _fakc * (_cou[0][1][0] - _fakaca * _cou[0][1][1]);  //s-xzz
+                    _cou[0][17][0] = _wmq[1] * _cou[0][6][1] + _fakc * (_cou[0][3][0] - _fakaca * _cou[0][3][1]);  //s-yyz
+                    _cou[0][18][0] = _wmq[2] * _cou[0][6][1] + _fakc * (_cou[0][2][0] - _fakaca * _cou[0][2][1]);  //s-yzz
                 }
 
             }
