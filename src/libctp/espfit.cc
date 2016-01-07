@@ -12,7 +12,7 @@ using namespace votca::tools;
 
 namespace votca { namespace ctp {
     namespace ub = boost::numeric::ublas;
-    
+/*    // not used anymore
 void Espfit::EvaluateAPECharges(Grid& _targetgrid, Grid& _chargepositions){
     vector<APolarSite*> charges=_chargepositions.Sites();
     vector<APolarSite*> positions=_targetgrid.Sites();
@@ -66,7 +66,7 @@ void Espfit::FitAPECharges(Grid& _targetgrid_fg, Grid& _targetgrid_bg, Grid& _ch
     }   
        LOG(logDEBUG, *_log) << " Fitting completed " << flush;
    }
-       
+  */     
 
 
 void Espfit::Fit2Density(vector< QMAtom* >& _atomlist, ub::matrix<double> &_dmat, AOBasis &_basis,BasisSet &bs,string gridsize) { 

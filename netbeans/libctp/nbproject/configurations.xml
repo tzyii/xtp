@@ -37,6 +37,8 @@
         <itemPath>../../src/libctp/extractors/trajextractor.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="JobCalculators" projectFiles="true">
+        <itemPath>../../src/libctp/jobcalculators/dma.cc</itemPath>
+        <itemPath>../../src/libctp/jobcalculators/dma.h</itemPath>
         <itemPath>../../src/libctp/jobcalculators/edft.h</itemPath>
         <itemPath>../../src/libctp/jobcalculators/egwbse.cc</itemPath>
         <itemPath>../../src/libctp/jobcalculators/egwbse.h</itemPath>
@@ -100,7 +102,9 @@
       <itemPath>../../include/votca/ctp/exchange_correlation.h</itemPath>
       <itemPath>../../include/votca/ctp/extractorfactory.h</itemPath>
       <itemPath>../../include/votca/ctp/fragment.h</itemPath>
+      <itemPath>../../include/votca/ctp/gauss_hermite.h</itemPath>
       <itemPath>../../include/votca/ctp/gdma.h</itemPath>
+      <itemPath>../../include/votca/ctp/gdma_internal.h</itemPath>
       <itemPath>../../include/votca/ctp/grid.h</itemPath>
       <itemPath>../../include/votca/ctp/gsl_boost_ublas_matrix_prod.h</itemPath>
       <itemPath>../../include/votca/ctp/gwbse.h</itemPath>
@@ -200,6 +204,7 @@
         <itemPath>../../src/libctp/gwbse/rpa.cc</itemPath>
       </logicalFolder>
       <logicalFolder name="f6" displayName="NumInt" projectFiles="true">
+        <itemPath>../../src/libctp/numerical_integration/gauss_hermite.cc</itemPath>
         <itemPath>../../src/libctp/numerical_integration/numerical_integrations.cc</itemPath>
         <itemPath>../../src/libctp/numerical_integration/radial_euler_maclaurin_rule.cc</itemPath>
         <itemPath>../../src/libctp/numerical_integration/sphere_lebedev_rule.cc</itemPath>
@@ -224,6 +229,7 @@
       <itemPath>../../src/libctp/ewaldactor.cc</itemPath>
       <itemPath>../../src/libctp/ewaldnd.cc</itemPath>
       <itemPath>../../src/libctp/gdma.cc</itemPath>
+      <itemPath>../../src/libctp/gdma_internal.cc</itemPath>
       <itemPath>../../src/libctp/grid.cc</itemPath>
       <itemPath>../../src/libctp/gsl_boost_ublas_matrix_prod.cc</itemPath>
       <itemPath>../../src/libctp/hgversion.h</itemPath>
@@ -354,7 +360,17 @@
       </item>
       <item path="../../include/votca/ctp/fragment.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="../../include/votca/ctp/gauss_hermite.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="../../include/votca/ctp/gdma.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../include/votca/ctp/gdma_internal.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="../../include/votca/ctp/grid.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -787,6 +803,8 @@
       </item>
       <item path="../../src/libctp/gdma.cc" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="../../src/libctp/gdma_internal.cc" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="../../src/libctp/grid.cc" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../src/libctp/gsl_boost_ublas_matrix_prod.cc"
@@ -811,6 +829,16 @@
       <item path="../../src/libctp/jobcalculatorfactory.cc"
             ex="false"
             tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../src/libctp/jobcalculators/dma.cc"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../src/libctp/jobcalculators/dma.h"
+            ex="false"
+            tool="3"
             flavor2="0">
       </item>
       <item path="../../src/libctp/jobcalculators/edft.h"
@@ -879,6 +907,11 @@
             flavor2="0">
       </item>
       <item path="../../src/libctp/molecule.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../src/libctp/numerical_integration/gauss_hermite.cc"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
       <item path="../../src/libctp/numerical_integration/numerical_integrations.cc"
             ex="false"
@@ -1140,7 +1173,17 @@
       </item>
       <item path="../../include/votca/ctp/fragment.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="../../include/votca/ctp/gauss_hermite.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="../../include/votca/ctp/gdma.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../include/votca/ctp/gdma_internal.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="../../include/votca/ctp/grid.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -1573,6 +1616,8 @@
       </item>
       <item path="../../src/libctp/gdma.cc" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="../../src/libctp/gdma_internal.cc" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="../../src/libctp/grid.cc" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../src/libctp/gsl_boost_ublas_matrix_prod.cc"
@@ -1597,6 +1642,16 @@
       <item path="../../src/libctp/jobcalculatorfactory.cc"
             ex="false"
             tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../src/libctp/jobcalculators/dma.cc"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../src/libctp/jobcalculators/dma.h"
+            ex="false"
+            tool="3"
             flavor2="0">
       </item>
       <item path="../../src/libctp/jobcalculators/edft.h"
@@ -1665,6 +1720,11 @@
             flavor2="0">
       </item>
       <item path="../../src/libctp/molecule.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../src/libctp/numerical_integration/gauss_hermite.cc"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
       <item path="../../src/libctp/numerical_integration/numerical_integrations.cc"
             ex="false"

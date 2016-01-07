@@ -34,12 +34,7 @@ namespace votca { namespace ctp {
 using namespace std;
 using namespace votca::tools;
 
-/**
-    \brief information about an element
- 
-    The Atom class stores atom id, name, type, mass, charge, residue number
-    
-*/
+
 class GDMA
 {
 public:   

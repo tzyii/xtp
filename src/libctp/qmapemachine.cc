@@ -284,7 +284,7 @@ bool QMAPEMachine<QMPackage>::Iterate(string jobFolder, int iterCnt) {
     Espfit fitcharges=Espfit(_log);
     double netchargefit=0.0;
 
-    fitcharges.FitAPECharges(_grid_bg,_grid_fg,_fitted_charges,netchargefit);
+    //fitcharges.FitAPECharges(_grid_bg,_grid_fg,_fitted_charges,netchargefit);
     mm_fitted.push_back(_fitted_charges.getSeg());
 
     
@@ -293,7 +293,7 @@ bool QMAPEMachine<QMPackage>::Iterate(string jobFolder, int iterCnt) {
     GenerateQMAtomsFromPolarSegs(_job->getPolarTop()->QM0(),dummy,basisforgrid);
     Grid visgrid_fit=Grid(_grid_bg);
   
-    fitcharges.EvaluateAPECharges(visgrid_fit,_fitted_charges);
+    //fitcharges.EvaluateAPECharges(visgrid_fit,_fitted_charges);
 
     visgrid_fit.printgridtoCubefile("cubefile_fit.cub");
 
@@ -693,20 +693,6 @@ bool QMAPEMachine<QMPackage>::hasConverged() {
     return _isConverged;
 }
 
-
-void QMAPEIter::ConvertPSitesToQMAtoms(vector< PolarSeg* > &psegs,
-                                       vector< QMAtom * > &qmatoms) {
-    
-    assert(qmatoms.size() == 0);    
-    return;   
-}
-
-
-void QMAPEIter::ConvertQMAtomsToPSites(vector< QMAtom* > &qmatoms,
-                                       vector< PolarSeg* > &psegs) {
-    assert(qmatoms.size() == 0);
-    return;
-}
 
 
 void QMAPEIter::UpdatePosChrgFromQMAtoms(vector< QMAtom* > &qmatoms,

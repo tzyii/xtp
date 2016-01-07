@@ -87,8 +87,7 @@ public:
     QMAPEIter(int id) : _id(id), _hasdRdQ(false), _hasQM(false), _hasMM(false) { ; }
    ~QMAPEIter() { ; }
 
-   void ConvertPSitesToQMAtoms(vector< PolarSeg* > &, vector< QMAtom* > &);
-   void ConvertQMAtomsToPSites(vector< QMAtom* > &, vector< PolarSeg* > &);
+ 
    void UpdatePosChrgFromQMAtoms(vector< QMAtom* > &, vector< PolarSeg* > &);   
   
 

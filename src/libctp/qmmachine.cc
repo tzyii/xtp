@@ -628,18 +628,7 @@ namespace votca {
             return _isConverged;
         }
 
-        void QMMIter::ConvertPSitesToQMAtoms(vector< PolarSeg* > &psegs,
-                vector< QMAtom * > &qmatoms) {
-
-            assert(qmatoms.size() == 0);
-            return;
-        }
-
-        void QMMIter::ConvertQMAtomsToPSites(vector< QMAtom* > &qmatoms,
-                vector< PolarSeg* > &psegs) {
-            assert(qmatoms.size() == 0);
-            return;
-        }
+ 
 
         void QMMIter::UpdateMPSFromGDMA(vector<vector<double> > &multipoles, vector< PolarSeg* > &psegs) {
 

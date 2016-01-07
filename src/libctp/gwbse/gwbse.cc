@@ -32,8 +32,7 @@
 #include <votca/tools/linalg.h>
 
 // testing numerical grids
-#include <votca/ctp/sphere_lebedev_rule.h>
-#include <votca/ctp/radial_euler_maclaurin_rule.h>
+
 
 // #include <omp.h>
 

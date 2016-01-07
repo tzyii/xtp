@@ -20,6 +20,20 @@ PolarSeg::PolarSeg(int id, vector<APolarSite*> &psites)
 }
 
 
+
+PolarSeg::PolarSeg(int id, vector< QMAtom* > &qmatoms)) 
+    : _id(id), _is_charged(true), _is_polarizable(true), 
+      _indu_cg_site(NULL), _perm_cg_site(NULL) {
+    PolarFrag *pfrag = this->AddFragment("NN");
+    for (unsigned int i = 0; i < qmatoms.size(); ++i) {
+        APolarSite *site=new APolarSite(qmatoms[i]);
+        push_back(site);
+        pfrag->push_back(site);
+    }
+    this->CalcPos();
+}
+
+
 PolarSeg::PolarSeg(PolarSeg *templ, bool do_depolarize) {
     // NOTE Polar neighbours _nbs are not copied !
     for (unsigned int i = 0; i < templ->_pfrags.size(); ++i) {

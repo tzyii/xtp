@@ -25,12 +25,13 @@
 #include <votca/ctp/basisset.h>
 #include <votca/ctp/qmatom.h>
 #include <votca/ctp/grid_containers.h>
+#include <votca/tools/conversionfactors.h>
 using namespace std;
 
 
 namespace votca { namespace ctp {
-
-
+    namespace conv=votca::tools::conv;
+    
         class EulerMaclaurinGrid {
         public: 
             
@@ -93,51 +94,51 @@ namespace votca { namespace ctp {
             
             inline void FillBraggSlaterRadii(){
                 
-                const double ang2bohr = 1.8897259886; 
+                
                 // 
-                _BraggSlaterRadii["H"] = 0.35 * ang2bohr ;
-                _BraggSlaterRadii["He"] = 0.35 * ang2bohr ;
+                _BraggSlaterRadii["H"] = 0.35 * conv::ang2bohr ;
+                _BraggSlaterRadii["He"] = 0.35 * conv::ang2bohr ;
 
                 // row of period system  for 1st row elements taken from NWChem
-                _BraggSlaterRadii["Li"] = 1.45 * ang2bohr ;
-                _BraggSlaterRadii["Be"] = 1.05* ang2bohr ;
-                _BraggSlaterRadii["B"] = 0.85* ang2bohr ;
-                _BraggSlaterRadii["C"] = 0.70* ang2bohr ;
-                _BraggSlaterRadii["N"] = 0.65* ang2bohr ;
-                _BraggSlaterRadii["O"] = 0.60* ang2bohr ;
-                _BraggSlaterRadii["F"] = 0.50* ang2bohr ;
-                _BraggSlaterRadii["Ne"] = 0.50* ang2bohr ;
+                _BraggSlaterRadii["Li"] = 1.45 * conv::ang2bohr ;
+                _BraggSlaterRadii["Be"] = 1.05* conv::ang2bohr ;
+                _BraggSlaterRadii["B"] = 0.85* conv::ang2bohr ;
+                _BraggSlaterRadii["C"] = 0.70* conv::ang2bohr ;
+                _BraggSlaterRadii["N"] = 0.65* conv::ang2bohr ;
+                _BraggSlaterRadii["O"] = 0.60* conv::ang2bohr ;
+                _BraggSlaterRadii["F"] = 0.50* conv::ang2bohr ;
+                _BraggSlaterRadii["Ne"] = 0.50* conv::ang2bohr ;
 
                 // row of period system  for 2nd row elements taken from NWChem
-                _BraggSlaterRadii["Na"] = 1.80* ang2bohr ;
-                _BraggSlaterRadii["Mg"] = 1.5* ang2bohr ;
-                _BraggSlaterRadii["Al"] = 1.25* ang2bohr ;
-                _BraggSlaterRadii["Si"] = 1.1* ang2bohr ;
-                _BraggSlaterRadii["P"] = 1.0* ang2bohr ;
-                _BraggSlaterRadii["S"] = 1.0* ang2bohr ;
-                _BraggSlaterRadii["Cl"] = 1.0* ang2bohr ;
-                _BraggSlaterRadii["Ar"] = 1.0* ang2bohr ;
+                _BraggSlaterRadii["Na"] = 1.80* conv::ang2bohr ;
+                _BraggSlaterRadii["Mg"] = 1.5* conv::ang2bohr ;
+                _BraggSlaterRadii["Al"] = 1.25* conv::ang2bohr ;
+                _BraggSlaterRadii["Si"] = 1.1* conv::ang2bohr ;
+                _BraggSlaterRadii["P"] = 1.0* conv::ang2bohr ;
+                _BraggSlaterRadii["S"] = 1.0* conv::ang2bohr ;
+                _BraggSlaterRadii["Cl"] = 1.0* conv::ang2bohr ;
+                _BraggSlaterRadii["Ar"] = 1.0* conv::ang2bohr ;
 
 
                 // row of period system  for 3rd row elements taken from NWChem
-                _BraggSlaterRadii["K"] = 2.2* ang2bohr ;
-                _BraggSlaterRadii["Ca"] = 1.8* ang2bohr ;
-                _BraggSlaterRadii["Sc"] = 1.6* ang2bohr ;
-                _BraggSlaterRadii["Ti"] = 1.4* ang2bohr ;
-                _BraggSlaterRadii["V"] = 1.35* ang2bohr ;
-                _BraggSlaterRadii["Cr"] = 1.4* ang2bohr ;
-                _BraggSlaterRadii["Mn"] = 1.4* ang2bohr ;
-                _BraggSlaterRadii["Fe"] = 1.4* ang2bohr ;
-                _BraggSlaterRadii["Co"] = 1.35* ang2bohr ;
-                _BraggSlaterRadii["Ni"] = 1.35* ang2bohr ;
-                _BraggSlaterRadii["Cu"] = 1.35* ang2bohr ;
-                _BraggSlaterRadii["Zn"] = 1.35* ang2bohr ;
-                _BraggSlaterRadii["Ga"] = 1.30* ang2bohr ;
-                _BraggSlaterRadii["Ge"] = 1.25* ang2bohr ;
-                _BraggSlaterRadii["As"] = 1.15* ang2bohr ;
-                _BraggSlaterRadii["Se"] = 1.15* ang2bohr ;
-                _BraggSlaterRadii["Br"] = 1.15* ang2bohr ;
-                _BraggSlaterRadii["Kr"] = 1.15* ang2bohr ;              
+                _BraggSlaterRadii["K"] = 2.2* conv::ang2bohr ;
+                _BraggSlaterRadii["Ca"] = 1.8* conv::ang2bohr ;
+                _BraggSlaterRadii["Sc"] = 1.6* conv::ang2bohr ;
+                _BraggSlaterRadii["Ti"] = 1.4* conv::ang2bohr ;
+                _BraggSlaterRadii["V"] = 1.35* conv::ang2bohr ;
+                _BraggSlaterRadii["Cr"] = 1.4* conv::ang2bohr ;
+                _BraggSlaterRadii["Mn"] = 1.4* conv::ang2bohr ;
+                _BraggSlaterRadii["Fe"] = 1.4* conv::ang2bohr ;
+                _BraggSlaterRadii["Co"] = 1.35* conv::ang2bohr ;
+                _BraggSlaterRadii["Ni"] = 1.35* conv::ang2bohr ;
+                _BraggSlaterRadii["Cu"] = 1.35* conv::ang2bohr ;
+                _BraggSlaterRadii["Zn"] = 1.35* conv::ang2bohr ;
+                _BraggSlaterRadii["Ga"] = 1.30* conv::ang2bohr ;
+                _BraggSlaterRadii["Ge"] = 1.25* conv::ang2bohr ;
+                _BraggSlaterRadii["As"] = 1.15* conv::ang2bohr ;
+                _BraggSlaterRadii["Se"] = 1.15* conv::ang2bohr ;
+                _BraggSlaterRadii["Br"] = 1.15* conv::ang2bohr ;
+                _BraggSlaterRadii["Kr"] = 1.15* conv::ang2bohr ;              
                 
                 
                 /* Copied from grid_atom_type_info.F of NWChem

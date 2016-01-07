@@ -258,17 +258,10 @@ namespace votca {
             } // gdma_output
            // LOG(logINFO, *_log) << "Done with GDMA" << flush;
 
-
+            return;
         }
-
-
-
-
-
-
-
-
-
+        
+        
 
 
 

@@ -11,6 +11,8 @@ namespace votca { namespace ctp {
 
 class PolarNb;
     
+//this class seems to be a container for APolarSites 
+
 class PolarSeg : public vector<APolarSite*>
 {
 
@@ -21,6 +23,7 @@ public:
           _indu_cg_site(NULL), _perm_cg_site(NULL) {}
     PolarSeg(int id, vector<APolarSite*> &psites);
     PolarSeg(PolarSeg *templ, bool do_depolarize);
+    PolarSeg(int id,vector< QMAtom* > &qmatoms);
     explicit PolarSeg(int id)
         : _id(id), _pos(vec(0,0,0)), _is_charged(true), _is_polarizable(true),
           _indu_cg_site(NULL), _perm_cg_site(NULL) {}

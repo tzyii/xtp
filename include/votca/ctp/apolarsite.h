@@ -27,6 +27,8 @@
 #include <votca/tools/types.h>
 #include <map>
 
+#include <votca/ctp/qmatom.h>
+#include <votca/tools/conversionfactors.h>
 
 namespace votca { namespace ctp {
     
@@ -73,6 +75,16 @@ public:
               _resolution(atomistic),PhiP(0.0),          PhiU(0.0)
             { _Qs.resize(3); _Ps.resize(3); this->Depolarize();
               for (int s = -1; s < 2; ++s) _Ps[s+1].ZeroMatrix(); }
+    APolarSite(QMAtom* atom)
+             : _id(-1),              _name(atom->type),         _isVirtual(false), 
+              _locX(vec(1,0,0)),    _locY(vec(0,1,0)),   _locZ(vec(0,0,1)), 
+              _top(0),              _seg(0),             _frag(0),
+              _resolution(atomistic),PhiP(0.0),          PhiU(0.0)
+            { _Qs.resize(3); _Ps.resize(3); this->Depolarize();
+            vec pos=vec(atom->x*conv::bohr2nm,atom->y*conv::bohr2nm,atom->z*conv::bohr2nm);
+            this->setPos(pos);
+              for (int s = -1; s < 2; ++s) _Ps[s+1].ZeroMatrix(); }
+    
     APolarSite(APolarSite *templ, bool do_depolarize);
    ~APolarSite() {};
    
@@ -128,7 +140,7 @@ public:
     double          getPhiP() { return PhiP; }
     double          getPhiU() { return PhiU; }
     double          getPhi() { return PhiP+PhiU; }
-    void          setPhi(double _PhiU, double _PhiP) {PhiU=_PhiU;PhiP=_PhiP;}
+    void            setPhi(double _PhiU, double _PhiP) {PhiU=_PhiU;PhiP=_PhiP;}
     void            ResetPhi(bool p, bool u) { if (p) PhiP = 0.0; if (u) PhiU = 0.0; }
     // CHARGE -1 0 +1 & DELTA
     void            Charge(int state);

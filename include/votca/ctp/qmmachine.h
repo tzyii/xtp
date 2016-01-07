@@ -107,8 +107,7 @@ public:
     QMMIter(int id) : _id(id), _hasdRdQ(false), _hasQM(false), _hasMM(false)  { ; }
    ~QMMIter() { ; }
 
-   void ConvertPSitesToQMAtoms(vector< PolarSeg* > &, vector< QMAtom* > &);
-   void ConvertQMAtomsToPSites(vector< QMAtom* > &, vector< PolarSeg* > &);
+  
    void UpdatePosChrgFromQMAtoms(vector< QMAtom* > &, vector< PolarSeg* > &);  
    void UpdateMPSFromGDMA( vector<vector<double> > &multipoles,  vector< PolarSeg* > &psegs);
    void GenerateQMAtomsFromPolarSegs(PolarTop *ptop, Orbitals &orb, bool split_dpl, double dpl_spacing);   
