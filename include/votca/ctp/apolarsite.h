@@ -28,7 +28,7 @@
 #include <map>
 
 #include <votca/ctp/qmatom.h>
-#include <votca/tools/conversionfactors.h>
+#include <votca/tools/constants.h>
 
 namespace votca { namespace ctp {
     

@@ -25,7 +25,7 @@
 #include <votca/ctp/basisset.h>
 #include <votca/ctp/qmatom.h>
 #include <votca/ctp/grid_containers.h>
-#include <votca/tools/conversionfactors.h>
+#include <votca/tools/constants.h>
 using namespace std;
 
 
