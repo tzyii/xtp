@@ -1,11 +1,11 @@
-# - Find libgmx
-# Find the native libgmx headers and libraries.
+# - Find libsqlite3
+# Find the native libsqlite3 headers and libraries.
 #
 #  SQLITE3_INCLUDE_DIRS - where to find sqlite3.h, etc
 #  SQLITE3_LIBRARIES    - List of libraries when using sqlite3.
 #  SQLITE3_FOUND        - True if sqlite3 found.
 #
-# Copyright 2009-2011 The VOTCA Development Team (http://www.votca.org)
+# Copyright 2009-2016 The VOTCA Development Team (http://www.votca.org)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
