@@ -349,7 +349,7 @@ void AOBasis::addReorderShell( string& start, string& target,  string& shell_typ
                neworder.push_back( _cur_pos + 2 );
                neworder.push_back( _cur_pos + 5 ); 
                neworder.push_back( _cur_pos + 3 );     
-            else if ( start == "votca") {
+           }else if ( start == "votca") {
                //votca order is dxz dyz dxy d3z2-r2 dx2-y2
                neworder.push_back( _cur_pos + 1 ); 
                neworder.push_back( _cur_pos + 2 );
@@ -366,7 +366,7 @@ void AOBasis::addReorderShell( string& start, string& target,  string& shell_typ
        }
            cerr << "Tried to reorder f-functions . ";
            throw std::runtime_error( "Reordering not implemented yet!");
-       }
+       
        if ( shell_type == "G" ){
            //votca has no order so far as for gw only the cartesian forms are used (actually even that is not implemented), cartesian order is xxxx,yyyy,zzzz,xxxy,xyyy,xxxz,xzzz,yyyz,yzzz,xxzz,yyzz,xxyy,xxyz,xyyz,xyzz source: Rohlfing dissertation appendix A
            cerr << "Tried to reorder g-functions . ";

@@ -21,7 +21,7 @@ PolarSeg::PolarSeg(int id, vector<APolarSite*> &psites)
 
 
 
-PolarSeg::PolarSeg(int id, vector< QMAtom* > &qmatoms)) 
+PolarSeg::PolarSeg(int id, vector< QMAtom* > &qmatoms)
     : _id(id), _is_charged(true), _is_polarizable(true), 
       _indu_cg_site(NULL), _perm_cg_site(NULL) {
     PolarFrag *pfrag = this->AddFragment("NN");

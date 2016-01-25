@@ -27,7 +27,7 @@
 #include <votca/tools/types.h>
 #include <map>
 
-#include <votca/ctp/qmatom.h>
+#include <votca/xtp/qmatom.h>
 #include <votca/tools/constants.h>
 
 namespace votca { namespace xtp {

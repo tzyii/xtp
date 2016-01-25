@@ -44,7 +44,7 @@ public:
             : type( "" ), x(0), y(0), z(0), charge(0), from_environment( false )
             {};     
           
-   vec getPosition(){return vec(x,y,z);} 
+   tools::vec getPosition(){return tools::vec(x,y,z);} 
    std::string type;
    double x;
    double y;
