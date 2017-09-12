@@ -33,6 +33,7 @@
 #include "tools/partialcharges.h"
 #include "tools/matrixproduct.h"
 #include "tools/densityanalysis.h"
+#include "tools/GPUNumericalIntegrationTest.h"
 
 namespace votca { namespace xtp {
 
@@ -52,6 +53,8 @@ void QMToolFactory::RegisterAll(void)
         QMTools().Register<Partialcharges>     ("partialcharges");
         QMTools().Register<MatProd>            ("matrixproduct");
         QMTools().Register<DensityAnalysis>    ("densityanalysis");
+
+        QMTools().Register<GPUNumericalIntegrationTest>    ("GPUNumericalIntegrationTest");
 
 }
 
