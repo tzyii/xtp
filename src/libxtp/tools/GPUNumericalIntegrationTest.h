@@ -22,7 +22,11 @@
 
 #include <stdio.h>
 #include <votca/ctp/logger.h>
-// Overload of uBLAS prod function with MKL/GSL implementations
+#include <votca/ctp/qmtool.h>
+
+#include <votca/xtp/orbitals.h>
+
+//#include <votca/xtp/gpu/GPUNumericalIntegration.cuh>
 
 namespace votca {
     namespace xtp {
@@ -49,57 +53,6 @@ namespace votca {
 
         };
 
-        void GPUNumericalIntegrationTest::Initialize(Property* options) {
-            // update options with the VOTCASHARE defaults
-            UpdateWithDefaults( options, "xtp" );
-
-
-            // orbitals file or pure DFT output
-            _orbfile = options->get(key + ".input").as<string> ();
-
-            // get the path to the shared folders with xml files
-            char *votca_share = getenv("VOTCASHARE");
-            if (votca_share == NULL) throw std::runtime_error("VOTCASHARE not set, cannot open help files.");
-            // string xmlFile = string(getenv("VOTCASHARE")) + string("/xtp/packages/") + _package + string("_idft_pair.xml");
-            // load_property_from_xml( _package_options, xmlFile );
-
-            // register all QM packages (Gaussian, TURBOMOLE, etc)
-            // QMPackageFactory::RegisterAll();
-
-        }
-
-bool GPUNumericalIntegrationTest::Evaluate() {
-    _log.setReportLevel( ctp::logDEBUG );
-    _log.setMultithreading( true );
-
-    _log.setPreface(ctp::logINFO,    "\n... ...");
-    _log.setPreface(ctp::logERROR,   "\n... ...");
-    _log.setPreface(ctp::logWARNING, "\n... ...");
-    _log.setPreface(ctp::logDEBUG,   "\n... ...");
-
-
-    CTP_LOG(ctp::logDEBUG, _log) << "Reading serialized QM data from " << _orbfile << flush;
-
-    Orbitals _orbitals;
-
-    CTP_LOG(ctp::logDEBUG, _log) << " Loading QM data from " << _orbfile << flush;
-    _orbitals.Load(_orbfile);
-
-    // load DFT basis set (element-wise information) from xml file
-    BasisSet dftbs;
-    dftbs.LoadBasisSet(_orbitals.getDFTbasis());
-    CTP_LOG(ctp::logDEBUG, _log) << " Loaded DFT Basis Set " << _orbitals.getDFTbasis() << flush;
-
-    // fill DFT AO basis by going through all atoms
-    AOBasis dftbasis;
-    dftbasis.AOBasisFill(&dftbs, _orbitals.QMAtoms());
-
-    ub::matrix<double> DMATGS = _orbitals.DensityMatrixGroundState();
-
-
-    return true;
-        }
 }}
 
-
-#endif
+#endif // _VOTCA_XTP_GPUNUMERICAL_INTEGRATION_TEST_H
