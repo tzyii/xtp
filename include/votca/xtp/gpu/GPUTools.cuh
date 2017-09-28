@@ -36,23 +36,24 @@ struct device_R3N_vectors{
     gpu_vector y;
     gpu_vector z;
 
-    device_R3N_vectors();
-    device_R3N_vectors(thrust_R3N_vectors& cpu): x(cpu.x), y(cpu.y), z(cpu.z){
-    }
+    device_R3N_vectors(){}
+    device_R3N_vectors(thrust_R3N_vectors& cpu): x(cpu.x), y(cpu.y), z(cpu.z){}
 }; 
 
-void Pad(thrust_vector& a, size_t p){
+inline void Pad(thrust_vector& a, size_t p){
     size_t n = 0;
     if (a.size()%p > 0){
         n = a.size()/p + 1;
         a.resize(n, 0);
     }
+
 }
 
-void Pad(thrust_R3N_vectors a, size_t p){
+inline void Pad(thrust_R3N_vectors a, size_t p){
     Pad(a.x, p);
     Pad(a.y, p);
     Pad(a.z, p);
+
 }
 
 }}}
