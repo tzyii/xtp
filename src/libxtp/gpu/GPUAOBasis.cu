@@ -1,28 +1,17 @@
-#ifndef GPU_AO_BASIS_CUH
-#define GPU_AO_BASIS_CUH
-
-#include <votca/xtp/gpu/GPUTools.cuh>
+#include <votca/xtp/gpu/GPUAOBasis.h>
 
 namespace votca { namespace xtp { namespace gpu {
 
-class GPUAOBasis{
-public:
-    thrust_vector sConts;
-    thrust_vector pConts;
-    thrust_vector dConts;
-    thrust_vector fConts;
-    thrust_vector gConts;
-    thrust_vector alphas;
-    thrust_vector powFactors;
+GPUAOBasis::GPUAOBasis(){}
+GPUAOBasis::~GPUAOBasis(){}
 
-    GPUAOBasis::GPUAOBasis(const AOBasis& aob){
+GPUAOBasis::GPUAOBasis(const AOBasis& aob){
     for (AOBasis::AOShellIterator row = aob.firstShell(); row != aob.lastShell(); row++){
         const AOShell* shell = aob.getShell(row); 
         const std::string shell_type = shell->getType();
         
         for (AOShell::GaussianIterator itr = shell->firstGaussian(); itr != shell->lastGaussian(); ++itr){
             const std::vector<double>& contractions = (*itr)->getContraction();
-
             alphas.push_back((*itr)->getDecay());
             powFactors.push_back((*itr)->getPowfactor());
             
@@ -48,7 +37,7 @@ public:
             }
         }
     }
-        
+    
     Pad(sConts, 16);
     Pad(pConts, 16);
     Pad(dConts, 16);
@@ -115,37 +104,9 @@ public:
     rawGpuArrs.gFuncVals.arraySize = d_gFuncVals.size();
 }
     
-    GPUAOBasis();
-    ~GPUAOBasis();
 
-    gpuAOArrs GetRawGPUArrss(){
-        return rawGpuArrs;
-    }
+gpuAOArrs GPUAOBasis::GetRawGPUArrs(){
+    return rawGpuArrs;
+}
 
-private:
-    gpuAOArrs rawGpuArrs; 
-
-    size_t padding = 16;
-    
-    gpu_vector d_sConts;
-    gpu_vector d_pConts;
-    gpu_vector d_dConts;
-    gpu_vector d_fConts;
-    gpu_vector d_gConts;
-    gpu_vector d_alphas;
-    gpu_vector d_powFactors;
-
-    gpu_vector d_expoFactors;
-
-    gpu_vector d_sFuncVals; 
-    gpu_vector d_pFuncVals; 
-    gpu_vector d_dFuncVals; 
-    gpu_vector d_fFuncVals; 
-    gpu_vector d_gFuncVals; 
-};
-
-
-
-
-}}} 
-#endif // GPU_AO_BASIS_CUH
+}}}
