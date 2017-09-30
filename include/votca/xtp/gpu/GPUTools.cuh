@@ -1,7 +1,12 @@
 #ifndef GPU_TOOLS_CUH
 #define GPU_TOOLS_CUH
-#include <helper_cuda.h>
+
+#include <cuda_runtime.h>       // These headers are included
+#include <helper_functions.h>   // implicitly by nvcc somehow
+#include <helper_cuda.h>        // leave them explicit here,
+                                // or xtp will NOT compile
 #include <iostream>
+
 #include <thrust/host_vector.h>
 #include <thrust/device_vector.h>
 
@@ -15,7 +20,7 @@ namespace votca { namespace xtp { namespace gpu {
 
 inline void cudaErrorCheck(const cudaError_t e, const char* file, const int line, bool abort){
     if (e!=cudaSuccess){
-        std::cerr << "Cuda error " << _cudaGetErrorEnum(e) << std::endl;               
+        std::cerr << "Cuda error code" << e << ":\n" << _cudaGetErrorEnum(e) << std::endl;
         std::cerr << "  Error Message: " << cudaGetErrorString(e) << std::endl;        
         std::cerr << "  Occured in " << file << "(" << line << ")" <<  std::endl; 
         if (abort) exit(EXIT_FAILURE);

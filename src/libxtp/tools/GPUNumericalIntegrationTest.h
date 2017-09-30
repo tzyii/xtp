@@ -26,7 +26,7 @@
 
 #include <votca/xtp/orbitals.h>
 
-//#include <votca/xtp/gpu/GPUNumericalIntegration.cuh>
+#include <votca/xtp/gpu/GPUNumericalIntegration.h>
 
 namespace votca {
     namespace xtp {
