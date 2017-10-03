@@ -20,6 +20,12 @@ public:
     thrust_vector alphas;
     thrust_vector powFactors;
 
+    thrust_R3N_vectors sPos;
+    thrust_R3N_vectors pPos;
+    thrust_R3N_vectors dPos;
+    thrust_R3N_vectors fPos;
+    thrust_R3N_vectors gPos;
+
     GPUAOBasis(const AOBasis& aob);
 
     gpuAOArrs GetRawGPUArrs();
@@ -36,6 +42,12 @@ private:
     gpu_vector d_gConts;
     gpu_vector d_alphas;
     gpu_vector d_powFactors;
+
+    device_R3N_vectors d_sPos;
+    device_R3N_vectors d_pPos;
+    device_R3N_vectors d_dPos;
+    device_R3N_vectors d_fPos;
+    device_R3N_vectors d_gPos;
 
     gpu_vector d_expoFactors;
 
