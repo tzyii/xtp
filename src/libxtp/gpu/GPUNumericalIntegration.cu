@@ -4,6 +4,8 @@
 #include <votca/xtp/gridbox.h>
 #include <thrust/host_vector.h>
 #include <votca/xtp/gpu/GPUNumericalIntegration.h>
+#include <votca/xtp/gpu/GPUCTypes.cuh>
+#include "kernels/IntegrationKernels.cuh"
 
 namespace votca { namespace xtp { namespace gpu {
 
