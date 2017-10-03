@@ -39,11 +39,7 @@ private:
 
     gpu_vector d_expoFactors;
 
-    gpu_vector d_sFuncVals;
-    gpu_vector d_pFuncVals;
-    gpu_vector d_dFuncVals;
-    gpu_vector d_fFuncVals;
-    gpu_vector d_gFuncVals;
+
 };
 
 }}}

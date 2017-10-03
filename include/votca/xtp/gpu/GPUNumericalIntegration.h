@@ -19,6 +19,14 @@ namespace votca { namespace xtp { namespace gpu {
        int _device;
        GPUAOBasis _gpuAOB;
        GPUGridBox _gpuGridBox;
+
+       gpu_vector d_sFuncVals;
+       gpu_vector d_pFuncVals;
+       gpu_vector d_dFuncVals;
+       gpu_vector d_fFuncVals;
+       gpu_vector d_gFuncVals;
+
+       GPUFuncVals _gpuFuncVals;
    };
 
 }}}

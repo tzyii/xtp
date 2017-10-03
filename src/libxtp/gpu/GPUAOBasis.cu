@@ -57,12 +57,6 @@ GPUAOBasis::GPUAOBasis(const AOBasis& aob){
         
     d_expoFactors = gpu_vector(alphas.size(), 0);
 
-    d_sFuncVals = gpu_vector(sConts.size(), 0); 
-    d_pFuncVals = gpu_vector(pConts.size(), 0); 
-    d_dFuncVals = gpu_vector(dConts.size(), 0); 
-    d_fFuncVals = gpu_vector(fConts.size(), 0); 
-    d_gFuncVals = gpu_vector(gConts.size(), 0); 
-
     // build the pointer struct that will be passed to the gpu kernels. 
     rawGpuArrs.sConts.array = thrust::raw_pointer_cast(&d_sConts[0]);
     rawGpuArrs.sConts.arraySize = d_sConts.size();
@@ -87,21 +81,6 @@ GPUAOBasis::GPUAOBasis(const AOBasis& aob){
 
     rawGpuArrs.expoFactors.array = thrust::raw_pointer_cast(&d_expoFactors[0]);
     rawGpuArrs.expoFactors.arraySize = d_expoFactors.size();
-
-    rawGpuArrs.sFuncVals.array = thrust::raw_pointer_cast(&d_sFuncVals[0]);
-    rawGpuArrs.sFuncVals.arraySize = d_sFuncVals.size();
-
-    rawGpuArrs.pFuncVals.array = thrust::raw_pointer_cast(&d_pFuncVals[0]);
-    rawGpuArrs.pFuncVals.arraySize = d_pFuncVals.size();
-
-    rawGpuArrs.dFuncVals.array = thrust::raw_pointer_cast(&d_dFuncVals[0]);
-    rawGpuArrs.dFuncVals.arraySize = d_dFuncVals.size();
-
-    rawGpuArrs.fFuncVals.array = thrust::raw_pointer_cast(&d_fFuncVals[0]);
-    rawGpuArrs.fFuncVals.arraySize = d_fFuncVals.size();
-
-    rawGpuArrs.gFuncVals.array = thrust::raw_pointer_cast(&d_gFuncVals[0]);
-    rawGpuArrs.gFuncVals.arraySize = d_gFuncVals.size();
 }
     
 
