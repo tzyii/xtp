@@ -12,8 +12,8 @@ namespace votca { namespace xtp { namespace gpu {
 
    class GPUNumericalIntegration{
    public:
-       GPUNumericalIntegration();
-       ~GPUNumericalIntegration();
+       GPUNumericalIntegration(){}
+       ~GPUNumericalIntegration(){}
        GPUNumericalIntegration(const AOBasis& aob, const std::vector<GridBox>& gbs);
    private:
        int _device;
