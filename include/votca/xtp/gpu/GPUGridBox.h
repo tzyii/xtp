@@ -17,8 +17,10 @@ public:
 
     GPUGridBox(const std::vector<GridBox>& gridBoxes);
 
+    R3Nptrs GetRawGPUArrs();
+
 private:
-    R3Nptrs gridPoints;
+    R3Nptrs rawGPUArrs;
     device_R3N_vectors d_gridPoints;
     thrust_vector d_weights;
 };

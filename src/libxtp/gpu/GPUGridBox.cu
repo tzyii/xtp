@@ -21,5 +21,15 @@ GPUGridBox::GPUGridBox(const std::vector<GridBox>& gridBoxes){
 
     d_gridPoints = device_R3N_vectors(h_gridPoints);
     d_weights = gpu_vector(h_weights);
+
+    rawGPUArrs.x = thrust::raw_pointer_cast(&d_gridPoints.x[0]); 
+    rawGPUArrs.y = thrust::raw_pointer_cast(&d_gridPoints.y[0]); 
+    rawGPUArrs.z = thrust::raw_pointer_cast(&d_gridPoints.z[0]);
+    rawGPUArrs.n = d_gridPoints.x.size();
+    
+}
+
+R3Nptrs GPUGridBox::GetRawGPUArrs(){
+    return rawGPUArrs;
 }
 }}}
