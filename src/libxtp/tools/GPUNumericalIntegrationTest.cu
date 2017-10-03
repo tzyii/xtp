@@ -45,6 +45,8 @@ namespace votca {
 
             ub::matrix<double> DMATGS = _orbitals.DensityMatrixGroundState();
 
+            gpu::GPUNumericalIntegration GpuNI; 
+
             return true;
         }
 
