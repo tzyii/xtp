@@ -15,6 +15,7 @@ namespace votca { namespace xtp { namespace gpu {
        GPUNumericalIntegration(){}
        ~GPUNumericalIntegration(){}
        GPUNumericalIntegration(const AOBasis& aob, const std::vector<GridBox>& gbs);
+       void EvaluateFuncs();
    private:
        int _device;
        GPUAOBasis _gpuAOB;

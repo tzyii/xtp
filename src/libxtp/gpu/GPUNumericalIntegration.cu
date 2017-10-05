@@ -46,6 +46,57 @@ GPUNumericalIntegration::GPUNumericalIntegration(const AOBasis& aob,
     
 }
 
+void GPUNumericalIntegration::EvaluateFuncs(){
+    // run the kernels baby
+
+    // maybe this should be configurable??
+    dim3 threadsperblock(512, 512); // this can change depending on hardware.
+                                    // might need to be careful with this...
+
+    // threadsperblock.x is the number of functions that are evaluated
+    // simultaneously. threadsperblock.y is the number of grid points
+    // at which each function is evaluated.
+
+    // s
+    dim3 numblocks(1 + _gpuAOB.sConts.size()/threadsperblock.x,
+                   1 + _gpuGridBox.h_gridPoints.x.size()/threadsperblock.y);
+
+    EvalSFuncs<<<numblocks, threadsperblock>>>(_gpuAOB.GetRawGPUArrs(),
+                                               _gpuGridBox.GetRawGPUArrs(),
+                                               _gpuFuncVals.sFuncVals);
+
+    // p
+    numblocks = dim3(1 + _gpuAOB.pConts.size()/threadsperblock.x,
+                     1 + _gpuGridBox.h_gridPoints.x.size()/threadsperblock.y);
+
+    EvalPFuncs<<<numblocks, threadsperblock>>>(_gpuAOB.GetRawGPUArrs(),
+                                               _gpuGridBox.GetRawGPUArrs(),
+                                               _gpuFuncVals.pFuncVals);
+
+    // d
+    numblocks = dim3(1 + _gpuAOB.dConts.size()/threadsperblock.x,
+                     1 + _gpuGridBox.h_gridPoints.x.size()/threadsperblock.y);
+
+    EvalDFuncs<<<numblocks, threadsperblock>>>(_gpuAOB.GetRawGPUArrs(),
+                                               _gpuGridBox.GetRawGPUArrs(),
+                                               _gpuFuncVals.dFuncVals);
+
+    // f
+    numblocks = dim3(1 + _gpuAOB.fConts.size()/threadsperblock.x,
+                     1 + _gpuGridBox.h_gridPoints.x.size()/threadsperblock.y);
+
+    EvalFFuncs<<<numblocks, threadsperblock>>>(_gpuAOB.GetRawGPUArrs(),
+                                               _gpuGridBox.GetRawGPUArrs(),
+                                               _gpuFuncVals.fFuncVals);
+
+
+    // g
+    numblocks = dim3(1 + _gpuAOB.gConts.size()/threadsperblock.x,
+                     1 + _gpuGridBox.h_gridPoints.x.size()/threadsperblock.y);
+
+    EvalGFuncs<<<numblocks, threadsperblock>>>(_gpuAOB.GetRawGPUArrs(),
+                                               _gpuGridBox.GetRawGPUArrs(),
+                                               _gpuFuncVals.gFuncVals);
 }
 
 }}}
